@@ -1,5 +1,6 @@
 .App {
   background-color: whitesmoke;
+  padding: 0 2rem;
 }
 
 ul > li {
@@ -14,4 +15,14 @@ ul > li {
 
 .main {
   min-height: 70vh;
+}
+
+table{
+  width: 100%;
+}
+
+th, td {
+  text-align: center;
+  border: 2px solid #ccc;
+  padding: 1rem;
 }
