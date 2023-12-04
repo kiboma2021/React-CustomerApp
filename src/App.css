@@ -1,0 +1,8 @@
+.App {
+  background-color: whitesmoke;
+}
+
+ul > li {
+  list-style-type: none;
+  padding: 2rem;
+}
