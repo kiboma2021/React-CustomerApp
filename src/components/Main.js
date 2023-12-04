@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Main = () => {
     const customers = [
@@ -7,8 +7,15 @@ const Main = () => {
         {id: 6985, name: 'Jane Adongo', age:31, employed: true},
         {id: 6987, name: 'Fatma Mburu', age:19, employed: false},
     ]
+
+    const [toggle, setToggle] = useState(true)
+
   return (
     <section className='main'>
+        <div className='toggle-btn'>
+        <button onClick={()=> setToggle(!toggle)}>{toggle?"Hide All":"Show All"}</button>
+        </div>
+        
         <table>
             <thead>
                 <tr>
@@ -19,7 +26,7 @@ const Main = () => {
                 </tr>
             </thead>
             <tbody>
-                {customers.map(customer =>
+                {toggle && customers.map(customer =>
                 <tr>
                     <td>{customer.id} </td>
                     <td>{customer.name} </td>

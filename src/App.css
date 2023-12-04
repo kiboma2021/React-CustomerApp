@@ -26,3 +26,19 @@ th, td {
   border: 2px solid #ccc;
   padding: 1rem;
 }
+
+.toggle-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.toggle-btn > button {
+  width: 40%;
+  padding: 1rem;
+  border: none;
+  background-color: aquamarine;
+  border-radius: 2rem;
+  font-size: 2rem;
+}
