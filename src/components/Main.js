@@ -10,6 +10,8 @@ const Main = () => {
     ]);
 
     const [toggle, setToggle] = useState(true)
+    const [custName, setCustName] = useState("")
+    const [custAge, setCustAge] = useState("")
 
     function handleDelte(id) {
         console.log('deleted', id)
@@ -23,8 +25,8 @@ const Main = () => {
         </div>
         
         <form>
-            <input type="text" placeholder='Customer Name' />
-            <input type="text" placeholder='Age' />
+            <input onChange={(e)=> setCustName(e.target.value)} type="text" placeholder='Customer Name' />
+            <input onChange={(e)=> setCustAge(e.target.value)} type="text" placeholder='Age' />
             <select>
                 <option value="true">Employed</option>
                 <option value="false">Unemployed</option>
@@ -34,6 +36,10 @@ const Main = () => {
             </div>
             <button type='submit' className='submit-btn'> Submit</button>
         </form>
+        <div className='user-input'>
+            <h3>Name: <span className='user-output'>{custName}</span> </h3>
+            <h3>Age <span className='user-output'>{custAge} </span></h3>
+        </div>
         <table>
             <thead>
                 <tr>

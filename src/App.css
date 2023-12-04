@@ -79,3 +79,13 @@ select,
   background-color: burlywood;
   padding: 0.5rem;
 }
+
+.user-input {
+  margin: 1rem;
+  background-color: aliceblue;
+  padding: 1rem;
+}
+
+.user-output {
+  color: red;
+}
