@@ -19,9 +19,21 @@ const Main = () => {
   return (
     <section className='main'>
         <div className='toggle-btn'>
-        <button onClick={()=> setToggle(!toggle)}>{toggle?"Hide All":"Show All"}</button>
+            <button onClick={()=> setToggle(!toggle)}>{toggle?"Hide All":"Show All"}</button>
         </div>
         
+        <form>
+            <input type="text" placeholder='Customer Name' />
+            <input type="text" placeholder='Age' />
+            <select>
+                <option value="true">Employed</option>
+                <option value="false">Unemployed</option>
+            </select>
+            <div>
+                <span className='reset-btn'>Reset</span>
+            </div>
+            <button type='submit' className='submit-btn'> Submit</button>
+        </form>
         <table>
             <thead>
                 <tr>

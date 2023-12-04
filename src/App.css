@@ -27,7 +27,8 @@ th, td {
   padding: 1rem;
 }
 
-.toggle-btn {
+.toggle-btn,
+form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,4 +57,25 @@ th, td {
   padding: 0.7rem;
   color: white;
   border-radius: 0.5rem;
+}
+
+input, 
+select,
+.submit-btn,
+.reset-btn {
+  margin: 2rem;
+  height: 2rem;
+  background-color: #e7e4e4;
+  border: none;
+  border-radius: 0.2rem;
+}
+
+.submit-btn {
+  color: white;
+  background-color: rgb(0, 26, 255);
+}
+
+.reset-btn {
+  background-color: burlywood;
+  padding: 0.5rem;
 }
