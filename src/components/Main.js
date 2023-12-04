@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import CustomerList from './CustomerList';
 
 const Main = () => {
     const [customers, setCustomers] = useState ([
@@ -33,13 +34,8 @@ const Main = () => {
             </thead>
             <tbody>
                 {toggle && customers.map(customer =>
-                <tr className={customer.employed?"employed":"unemployed"} key={customer.id}>
-                    <td>{customer.id} </td>
-                    <td>{customer.name} </td>
-                    <td>{customer.age} </td>
-                    <td>{customer.employed? "Employed":"Unemployed"} </td>
-                    <td onClick={()=>handleDelte(customer.id)}><span className='delete'>Delete</span></td>
-                </tr>
+                <CustomerList customer={customer} handleDelte={handleDelte} key={customer.id} />
+
             )}
             </tbody>
         </table>
