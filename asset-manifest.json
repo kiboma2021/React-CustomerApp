@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/React-CustomerApp/static/css/main.301b3af2.css",
+    "main.js": "/React-CustomerApp/static/js/main.92344dd5.js",
+    "static/media/logo.jpg": "/React-CustomerApp/static/media/logo.25367f708f9b14bcf496.jpg",
+    "index.html": "/React-CustomerApp/index.html",
+    "main.301b3af2.css.map": "/React-CustomerApp/static/css/main.301b3af2.css.map",
+    "main.92344dd5.js.map": "/React-CustomerApp/static/js/main.92344dd5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.301b3af2.css",
+    "static/js/main.92344dd5.js"
+  ]
+}
