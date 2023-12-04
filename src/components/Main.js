@@ -27,7 +27,7 @@ const Main = () => {
             </thead>
             <tbody>
                 {toggle && customers.map(customer =>
-                <tr>
+                <tr className={customer.employed?"employed":"unemployed"}>
                     <td>{customer.id} </td>
                     <td>{customer.name} </td>
                     <td>{customer.age} </td>

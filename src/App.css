@@ -42,3 +42,11 @@ th, td {
   border-radius: 2rem;
   font-size: 2rem;
 }
+
+.employed {
+  color: rgb(10, 154, 106);
+}
+
+.unemployed {
+  color: red;
+}
