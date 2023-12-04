@@ -50,3 +50,10 @@ th, td {
 .unemployed {
   color: red;
 }
+
+.delete{
+  background-color: red;
+  padding: 0.7rem;
+  color: white;
+  border-radius: 0.5rem;
+}

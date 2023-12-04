@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
 
 const Main = () => {
-    const customers = [
+    const [customers, setCustomers] = useState ([
         {id: 1234, name: 'James Atoti', age: 26, employed: false},
         {id : 1245, name: 'Abraham Lincolin', age: 44, employed: true},
         {id: 6985, name: 'Jane Adongo', age:31, employed: true},
         {id: 6987, name: 'Fatma Mburu', age:19, employed: false},
-    ]
+    ]);
 
     const [toggle, setToggle] = useState(true)
+
+    function handleDelte(id) {
+        console.log('deleted', id)
+        setCustomers(customers.filter(customer => customer.id != id))
+    }
 
   return (
     <section className='main'>
@@ -23,15 +28,17 @@ const Main = () => {
                     <th>Customer Name</th>
                     <th>Age</th>
                     <th>Employment Status</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
                 {toggle && customers.map(customer =>
-                <tr className={customer.employed?"employed":"unemployed"}>
+                <tr className={customer.employed?"employed":"unemployed"} key={customer.id}>
                     <td>{customer.id} </td>
                     <td>{customer.name} </td>
                     <td>{customer.age} </td>
                     <td>{customer.employed? "Employed":"Unemployed"} </td>
+                    <td onClick={()=>handleDelte(customer.id)}><span className='delete'>Delete</span></td>
                 </tr>
             )}
             </tbody>
