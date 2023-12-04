@@ -6,3 +6,12 @@ ul > li {
   list-style-type: none;
   padding: 2rem;
 }
+
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.main {
+  min-height: 70vh;
+}
