@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import CustomerList from './CustomerList';
 
 const Main = () => {
@@ -12,7 +12,9 @@ const Main = () => {
     const [toggle, setToggle] = useState(true)
     const [custName, setCustName] = useState("")
     const [custAge, setCustAge] = useState("")
-    const [employment, setEmployment] = useState(false)
+   // const [employment, setEmployment] = useState(false)
+
+   const employStatus = useRef(false)
 
     function handleDelte(id) {
         console.log('deleted', id)
@@ -22,7 +24,7 @@ const Main = () => {
     function handleReset(){
         setCustAge("")
         setCustName("")
-        setEmployment(false)
+        employStatus.current.value = false;
     }
 
     function handleSubmit(event) {
@@ -32,7 +34,7 @@ const Main = () => {
             id: set_id,
             name:custName,
             age: custAge,
-            employed: Boolean(employment)
+            employed: employStatus.current.value==='true'
         }
 
         setCustomers([...customers,customer])
@@ -48,7 +50,7 @@ const Main = () => {
         <form onSubmit={handleSubmit}>
             <input onChange={(e)=> setCustName(e.target.value)} type="text" placeholder='Customer Name' value={custName} />
             <input onChange={(e)=> setCustAge(e.target.value)} type="text" placeholder='Age' value={custAge} />
-            <select value={employment} onChange={(e)=>setEmployment(e.target.value)}>
+            <select ref={employStatus}>
                 <option value="true">Employed</option>
                 <option value="false">Unemployed</option>
             </select>
