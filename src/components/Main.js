@@ -12,10 +12,17 @@ const Main = () => {
     const [toggle, setToggle] = useState(true)
     const [custName, setCustName] = useState("")
     const [custAge, setCustAge] = useState("")
+    const [employment, setEmployment] = useState(false)
 
     function handleDelte(id) {
         console.log('deleted', id)
         setCustomers(customers.filter(customer => customer.id != id))
+    }
+
+    function handleReset(){
+        setCustAge("")
+        setCustName("")
+        setEmployment(false)
     }
 
   return (
@@ -25,14 +32,14 @@ const Main = () => {
         </div>
         
         <form>
-            <input onChange={(e)=> setCustName(e.target.value)} type="text" placeholder='Customer Name' />
-            <input onChange={(e)=> setCustAge(e.target.value)} type="text" placeholder='Age' />
-            <select>
+            <input onChange={(e)=> setCustName(e.target.value)} type="text" placeholder='Customer Name' value={custName} />
+            <input onChange={(e)=> setCustAge(e.target.value)} type="text" placeholder='Age' value={custAge} />
+            <select value={employment} onChange={(e)=>setEmployment(e.target.value)}>
                 <option value="true">Employed</option>
                 <option value="false">Unemployed</option>
             </select>
             <div>
-                <span className='reset-btn'>Reset</span>
+                <span className='reset-btn' onClick={handleReset}>Reset</span>
             </div>
             <button type='submit' className='submit-btn'> Submit</button>
         </form>
