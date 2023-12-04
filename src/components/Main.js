@@ -25,13 +25,27 @@ const Main = () => {
         setEmployment(false)
     }
 
+    function handleSubmit(event) {
+        event.preventDefault();
+        const set_id = Math.floor(Math.random()*10000)
+        const customer = {
+            id: set_id,
+            name:custName,
+            age: custAge,
+            employed: Boolean(employment)
+        }
+
+        setCustomers([...customers,customer])
+        handleReset()
+    }
+
   return (
     <section className='main'>
         <div className='toggle-btn'>
             <button onClick={()=> setToggle(!toggle)}>{toggle?"Hide All":"Show All"}</button>
         </div>
         
-        <form>
+        <form onSubmit={handleSubmit}>
             <input onChange={(e)=> setCustName(e.target.value)} type="text" placeholder='Customer Name' value={custName} />
             <input onChange={(e)=> setCustAge(e.target.value)} type="text" placeholder='Age' value={custAge} />
             <select value={employment} onChange={(e)=>setEmployment(e.target.value)}>
