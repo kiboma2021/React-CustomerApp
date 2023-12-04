@@ -1,0 +1,18 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 5rem;
+    border-radius: 0.5rem;
+}
+
+.navlist {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2rem;
+
+}
