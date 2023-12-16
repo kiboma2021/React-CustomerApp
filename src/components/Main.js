@@ -1,8 +1,10 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import CustomerList from './CustomerList';
 import AddTask from './AddTask';
 
 const Main = ({customers,setCustomers}) => {
+    
+    const [userInput,setUserInput]=useState({});
     
     function handleSubmit(event) {
         // event.preventDefault();
@@ -20,13 +22,8 @@ const Main = ({customers,setCustomers}) => {
 
   return (
     <section className='main'>
-        <AddTask handleSubmit={handleSubmit} />
-        <CustomerList customers={customers} setCustomers={setCustomers} />
-
-        
-
-
-
+        <AddTask handleSubmit={handleSubmit} userInput={userInput} setUserInput={setUserInput} />
+        <CustomerList customers={customers} setCustomers={setCustomers} userInput={userInput} setUserInput={setUserInput}  />
     </section>
   )
 }
