@@ -1,12 +1,16 @@
 import { useState } from 'react'
 
-const CustomerList = ({customers,setCustomers,handleDelte}) => {
+const CustomerList = ({customers,setCustomers,setUserInput }) => {
 
   const [toggle, setToggle] = useState(true)
 
   function handleDelte(id) {
     setCustomers(customers.filter((customer)=>customer.id !==id)  )
-
+  }
+  function handleEdit(id) {
+    const editedCustomer = customers.find(customer => customer.id === id)
+    setUserInput(editedCustomer)
+    console.log("========",editedCustomer)
   }
 
 
@@ -27,13 +31,13 @@ const CustomerList = ({customers,setCustomers,handleDelte}) => {
     </thead>
     <tbody>
         {toggle && customers.map(customer =>
-      <tr className={customer.employed?"employed":"unemployed"} >
+      <tr key={customer.id} className={customer.employed?"employed":"unemployed"} >
         <td>{customer.id} </td>
         <td>{customer.name} </td>
         <td>{customer.age} </td>
         <td>{customer.employed? "Employed":"Unemployed"} </td>
         <td style={{display:'flex', justifyContent:'space-around'}}>
-          <i className='fa fa-edit'></i>
+          <i onClick={()=>handleEdit(customer.id)} className='fa fa-edit'></i>
           <i onClick={()=>handleDelte(customer.id)} className='fa fa-trash'></i>
         </td>
       </tr>

@@ -4,16 +4,31 @@ const AddTask = ({customers,setCustomers,userInput,setUserInput}) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        const set_id = Math.floor(Math.random()*10000)
-        const new_customer = {
-            id: set_id,
-            name:e.target.customer_name.value,
-            age: e.target.customer_age.value,
-            employed: e.target.employee_status.value==='true'
+
+        if(userInput.id){
+            const EditedCustomers = customers.map((customer)=> (
+                customer.id === userInput.id?{
+                    id:customer.id,
+                    name:e.target.customer_name.value,
+                    age: e.target.customer_age.value,
+                    employed: e.target.employee_status.value==='true'
+                }:customer
+            ))
+
+            console.log('ready to edit');
+
+
+        } else {
+            const set_id = Math.floor(Math.random()*10000)
+            const new_customer = {
+                id: set_id,
+                name:e.target.customer_name.value,
+                age: e.target.customer_age.value,
+                employed: e.target.employee_status.value==='true'
+            }
+            setCustomers([...customers,new_customer])
+            console.log(new_customer)
         }
-        setCustomers([...customers,new_customer])
-        setUserInput("")
-        console.log(new_customer)
     }
 
   return (
