@@ -12,15 +12,16 @@ const AddTask = ({customers,setCustomers,userInput,setUserInput}) => {
             employed: e.target.employee_status.value==='true'
         }
         setCustomers([...customers,new_customer])
+        setUserInput("")
         console.log(new_customer)
     }
 
   return (
     <div>
         <form onSubmit={handleSubmit}>
-            <input type="text" placeholder='Customer Name' name='customer_name' />
-            <input type="number" placeholder='Age' name='customer_age' />
-            <select name='employee_status' >
+            <input type="text" placeholder='Customer Name' name='customer_name' value={userInput.name} />
+            <input type="number" placeholder='Age' name='customer_age' value={userInput.age} />
+            <select name='employee_status' value={userInput.employed} >
                 <option value="true">Employed</option>
                 <option value="false">Unemployed</option>
             </select>
