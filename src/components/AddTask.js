@@ -1,14 +1,26 @@
 import React from 'react'
 
-const AddTask = ({handleSubmit}) => {
+const AddTask = ({customers,setCustomers,userInput,setUserInput}) => {
 
+    function handleSubmit(e) {
+        e.preventDefault();
+        const set_id = Math.floor(Math.random()*10000)
+        const new_customer = {
+            id: set_id,
+            name:e.target.customer_name.value,
+            age: e.target.customer_age.value,
+            employed: e.target.employee_status.value==='true'
+        }
+        setCustomers([...customers,new_customer])
+        console.log(new_customer)
+    }
 
   return (
     <div>
         <form onSubmit={handleSubmit}>
-            <input type="text" placeholder='Customer Name' />
-            <input type="text" placeholder='Age' />
-            <select >
+            <input type="text" placeholder='Customer Name' name='customer_name' />
+            <input type="number" placeholder='Age' name='customer_age' />
+            <select name='employee_status' >
                 <option value="true">Employed</option>
                 <option value="false">Unemployed</option>
             </select>
