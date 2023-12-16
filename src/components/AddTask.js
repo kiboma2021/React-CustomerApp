@@ -15,9 +15,8 @@ const AddTask = ({customers,setCustomers,userInput,setUserInput}) => {
                 }:customer
             ))
 
-            console.log('ready to edit');
-
-
+            setCustomers(EditedCustomers);
+            
         } else {
             const set_id = Math.floor(Math.random()*10000)
             const new_customer = {
@@ -34,9 +33,9 @@ const AddTask = ({customers,setCustomers,userInput,setUserInput}) => {
   return (
     <div>
         <form onSubmit={handleSubmit}>
-            <input type="text" placeholder='Customer Name' name='customer_name' value={userInput.name} />
-            <input type="number" placeholder='Age' name='customer_age' value={userInput.age} />
-            <select name='employee_status' value={userInput.employed} >
+            <input type="text" placeholder='Customer Name' name='customer_name' value={userInput.name} onChange={e=>setUserInput({...userInput,name:e.target.value})} />
+            <input type="number" placeholder='Age' name='customer_age' value={userInput.age} onChange={e=>setUserInput({...userInput,age:e.target.value})}/>
+            <select name='employee_status' value={userInput.employed} onChange={e=>setUserInput({...userInput,employed:e.target.value})} >
                 <option value="true">Employed</option>
                 <option value="false">Unemployed</option>
             </select>
