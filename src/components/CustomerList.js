@@ -1,8 +1,13 @@
 import { useState } from 'react'
 
-const CustomerList = ({customers,customer,handleDelte}) => {
+const CustomerList = ({customers,setCustomers,handleDelte}) => {
 
   const [toggle, setToggle] = useState(true)
+
+  function handleDelte(id) {
+    setCustomers(customers.filter((customer)=>customer.id !==id)  )
+
+  }
 
 
   return (
@@ -17,7 +22,7 @@ const CustomerList = ({customers,customer,handleDelte}) => {
             <th>Customer Name</th>
             <th>Age</th>
             <th>Employment Status</th>
-            <th>Delete</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -27,7 +32,10 @@ const CustomerList = ({customers,customer,handleDelte}) => {
         <td>{customer.name} </td>
         <td>{customer.age} </td>
         <td>{customer.employed? "Employed":"Unemployed"} </td>
-        <td onClick={()=>handleDelte(customer.id)}><span className='delete'>Delete</span></td>
+        <td style={{display:'flex', justifyContent:'space-around'}}>
+          <i className='fa fa-edit'></i>
+          <i onClick={()=>handleDelte(customer.id)} className='fa fa-trash'></i>
+        </td>
       </tr>
 
 
