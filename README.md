@@ -14,7 +14,7 @@
 - Css
 
 
-## 🚀 <a href="https://kiboma2021.github.io/React-CustomerApp/" target="_blank">Live Demo Link</a>
+## 🚀 <a href="https://kibs-customerapp.netlify.app/" target="_blank">Live Demo Link</a>
 
 
 ## 👥 Authors <a name="authors"></a>
