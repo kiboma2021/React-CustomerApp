@@ -16,6 +16,7 @@ const AddTask = ({customers,setCustomers,userInput,setUserInput}) => {
             ))
 
             setCustomers(EditedCustomers);
+            setUserInput({});
             
         } else {
             const set_id = Math.floor(Math.random()*10000)
@@ -26,6 +27,7 @@ const AddTask = ({customers,setCustomers,userInput,setUserInput}) => {
                 employed: e.target.employee_status.value==='true'
             }
             setCustomers([...customers,new_customer])
+            setUserInput({});
             console.log(new_customer)
         }
     }
@@ -33,20 +35,20 @@ const AddTask = ({customers,setCustomers,userInput,setUserInput}) => {
   return (
     <div>
         <form onSubmit={handleSubmit}>
-            <input type="text" placeholder='Customer Name' name='customer_name' value={userInput.name} onChange={e=>setUserInput({...userInput,name:e.target.value})} />
-            <input type="number" placeholder='Age' name='customer_age' value={userInput.age} onChange={e=>setUserInput({...userInput,age:e.target.value})}/>
-            <select name='employee_status' value={userInput.employed} onChange={e=>setUserInput({...userInput,employed:e.target.value})} >
+            <input type="text" placeholder='Customer Name' name='customer_name' value={userInput.name || "" } onChange={e=>setUserInput({...userInput,name:e.target.value})} />
+            <input type="number" placeholder='Age' name='customer_age' value={userInput.age || ""} onChange={e=>setUserInput({...userInput,age:e.target.value})}/>
+            <select name='employee_status' value={userInput.employed || false  } onChange={e=>setUserInput({...userInput,employed:e.target.value})} >
                 <option value="true">Employed</option>
                 <option value="false">Unemployed</option>
             </select>
             <div>
-                <span className='reset-btn'>Reset</span>
+                <span className='reset-btn' onClick={()=>setUserInput({})}>Reset</span>
             </div>
-            <button type='submit' className='submit-btn'> Submit</button>
+            <button type='submit' className='submit-btn'> {userInput.id?"Update":"Add"}</button>
         </form>
         <div className='user-input'>
-            <h3>Name: <span className='user-output'> </span> </h3>
-            <h3>Age <span className='user-output'> </span></h3>
+            <h3>Name: <span className='user-output'>{userInput.name} </span> </h3>
+            <h3>Age <span className='user-output'> </span> {userInput.age} </h3>
         </div>      
     </div>
   )
