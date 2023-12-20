@@ -89,3 +89,18 @@ select,
 .user-output {
   color: red;
 }
+
+.nav-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  font-size: 2rem;
+}
+
+.active{
+  background-color: aqua;
+  padding: 1rem;
+  color: red;
+  border-radius: 2rem;
+}

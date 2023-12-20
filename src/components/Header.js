@@ -1,18 +1,22 @@
 import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import Logo from '../assets/logo.jpg'
 import styles from './Header.module.css'
 
 const Header = ({customers}) => {
   return (
     <div className={styles.header}>
+      <Link>
         <img className={styles.logo} src={Logo} alt="Logo" />
-        <ul className={styles.navlist}>
-            <li>Home</li>
-            <li>Customers({customers.length})</li>
-            <li>About us </li>
-            <li>Contact us</li>
-            <li>LogIn</li>
-        </ul>      
+      </Link>
+        
+        <nav className='nav-bar'>
+            <NavLink to='/'>Home</NavLink>
+            <NavLink to='customers' >Customers({customers.length})</NavLink>
+            <NavLink to='about' >About us </NavLink>
+            <NavLink to='contact' >Contact us</NavLink>
+            <NavLink to='login' >LogIn</NavLink>
+        </nav>      
     </div>
   )
 }
