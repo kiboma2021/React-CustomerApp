@@ -6,7 +6,7 @@ import styles from './Header.module.css'
 const Header = ({customers}) => {
   return (
     <div className={styles.header}>
-      <Link>
+      <Link to='/'>
         <img className={styles.logo} src={Logo} alt="Logo" />
       </Link>
         
