@@ -90,7 +90,8 @@ select,
   color: red;
 }
 
-.nav-bar {
+.nav-bar,
+.route-pg {
   display: flex;
   justify-content: center;
   align-items: center;
