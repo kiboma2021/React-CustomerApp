@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Routes,Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Main from './components/Main';
@@ -15,13 +16,17 @@ function App() {
 
   return (
     <div className="App">
-      <>
       <Header customers={customers} />
-      <Main customers={customers} setCustomers={setCustomers}/>
+      <Routes>
+        <Route path='/' element={<Main customers={customers} setCustomers={setCustomers}/>} ></Route>
+        {/* <Route path='/' element={} ></Route>
+        <Route path='/' element={} ></Route>
+        <Route path='/' element={} ></Route>
+        <Route path='/' element={} ></Route>
+        <Route path='/' element={} ></Route> */}
+      </Routes>
+     
       <Footer />
-      
-      </>
-
     </div>
   );
 }
